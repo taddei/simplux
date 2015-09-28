@@ -1,6 +1,6 @@
 {
   "name": "simplux",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Simplux - Simple Flux. Extend Action and Store classes, use the pre-built Inflator for Isomorphic rendering",
   "main": "index.js",
   "scripts": {

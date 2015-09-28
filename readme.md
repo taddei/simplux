@@ -1,14 +1,14 @@
 ## Simplux
 #### A Simple Flux Library
 
-Simplux is just a flux library stripped to the bone. Nothing fancy and doesn't want to work for every case.
+Simplux is just a flux library stripped to the bone. Nothing fancy and it's not designed to solve every problem.
 It comprises of a series of classes that you can extend to create **Stores** or **Actions**.
 It comes also with a "Higher Order Component", **StoreEnhance**, that you can use to inject the Store's data in your views.
-Ultimately there is a basic **Inflator** singleton that allows you to fill the stores both server side and client side, to allow you to easily create an isomorphic app.
+Ultimately there is a basic **Inflator** singleton that allows you to fill the stores both server side and client side, that allows you to easily create an isomorphic app.
 
 ### Action
 
-Very easily just create a Action object with an *enum* that define the events your Action can emit
+Very easily create a Action object with an *enum* which defines the events your Action can emit
 
 ```javascript
 // myActions.js
@@ -44,26 +44,25 @@ class MyStore extends Store {
   * Use this lifecycle function to bind listeners (maybe to some action)
   */
   init () {
-    myActions.on(myActions.EVENTS.userEvent, this.onUserEvent.bond(this));
+    myActions.on(myActions.EVENTS.userEvent, this.onUserEvent.bind(this));
   }
 
 
   /**
   * Define your inflate function. see the Inflator section for more information
   */
-  inflate (pageData) { /* read data sent to the server and update the "this.data" */ }
+  inflate (pageData) { /* read data sent from the server and update the "this.data" */ }
 
   /**
-  * This callback anytime someone emits the "myActions.EVENTS.userEvent"
+  * This callback is called anytime someone emits the "myActions.EVENTS.userEvent"
   * Here you can access the "this.data" property and update the store's data
-  * When finished called the helper function "this.done"
+  * When finished, call the helper function "this.done"
   */
   onUserEvent (data) {
     this.data.myProp1 += 1;
     this.done();
   }
 }
-
 
 // export a singleton and initialize it with some default data
 // this will be accessible via the "this.data" prop

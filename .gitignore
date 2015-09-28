@@ -1,0 +1,11 @@
+# IDE Ignore
+.idea
+*.sublime-project
+*.sublime-workspace
+
+# Node ignore
+node_modules
+npm-debug.log
+
+# build folder
+/lib

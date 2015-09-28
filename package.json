@@ -1,0 +1,23 @@
+{
+  "name": "simplux",
+  "version": "0.0.2",
+  "description": "Simplux - Simple Flux. Extend Action and Store classes, use the pre-built Inflator for Isomorphic rendering",
+  "main": "index.js",
+  "scripts": {
+    "compile": "babel -d lib/ src/",
+    "postinstall": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.tm.tmcs:sim/sim.git"
+  },
+  "author": "Nicolo Taddei",
+  "license": "MIT",
+  "dependencies": {
+    "normalize-paths": "^1.1.6",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "babel": "^5.5.4"
+  }
+}

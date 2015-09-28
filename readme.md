@@ -132,12 +132,34 @@ export default function handler (req, res) {
 
   // now, when finally rendering the page with the viewContent, remember to pass the same data to the client
   // do that by creating a <script> tag for application/json with the id="page-data"
-  viewContent += '<script type="application/json" id="page-data">' + JSON.stringify(data) + '</script>';
+  // would be probably better to use some templating engine (handlebars?) to do this
+  var pageContent = '<div id="page">'
+  pageContent += viewContent;
+  pageContent += '</div><script type="application/json" id="page-data">' + JSON.stringify(data) + '</script>';
 
-  res.render('template', {viewContent: viewContent});
+  res.render('template', {pageContent: pageContent});
 }
 
 ```
 
-This is still a working progress. I use it for some of my prototypes, it allows me to easily spin up an isomorphic app with React.
+At this point your client side script can leverage the inflator function and it will pre-fill the stores on the browser.
+
+```javascript
+// client.js
+
+import React from 'react';
+import { Inflator } from 'simplux';
+
+// require the main view
+import MyView from './myView.js'
+
+// inflate the stores (on the browser it picks up data from the <script> tag)
+Inflator.inflate();
+
+React.render(<MyView />, document.getElementById('page'));
+
+```
+
+
+This is still a work in progress. I use it for some of my prototypes, it allows me to easily spin up an isomorphic app with React.
 Please feel free to grab it and try it out and feedback via the "issues".

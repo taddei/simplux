@@ -9,15 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.tm.tmcs:sim/sim.git"
+    "url": "http://github.com/taddei/simplux"
   },
   "author": "Nicolo Taddei",
   "license": "MIT",
   "dependencies": {
     "normalize-paths": "^1.1.6",
-    "react": "^0.13.3"
-  },
-  "devDependencies": {
+    "react": "^0.13.3",
     "babel": "^5.5.4"
   }
 }

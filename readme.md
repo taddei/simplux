@@ -101,7 +101,9 @@ const MyView = React.createClass({
 });
 
 // when exporting your view, use the "StoreEnhance"
-export default StoreEnhance(MyView, stores);
+// it takes your version of React to avoid conflicts of version or other inconsistencies
+// it calls the "React.createClass" on it
+export default StoreEnhance(React, MyView, stores);
 ```
 
 ### Inflator

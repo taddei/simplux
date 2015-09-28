@@ -1,12 +1,11 @@
-import React from 'react';
-
 /**
  *
+ * @param {React} React Pass in your reference to the React library (to avoid conflicts of any type)
  * @param {React.Component} ChildComponent The component you would like to wrap
  * @param {Object} stores An object mapping storeName and store
  * @return {React.Component}
  */
-export default function (ChildComponent, stores) {
+export default function (React, ChildComponent, stores) {
 
   var getStoreData = function () {
     return Object.keys(stores).reduce(function (state, storeName) {
